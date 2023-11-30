@@ -160,3 +160,63 @@ const giveMeRandom = function (rn) {
 };
 
 console.log(giveMeRandom(7));
+
+// EXTRA
+
+// ESERCIZIO 1
+
+const checkArray = function () {
+  const copyArray = giveMeRandom(7);
+  let sum = 0;
+  for (let i = 0; i < copyArray.length; i++) {
+    if (copyArray[i] === 5) {
+      console.log(copyArray[i], "è = a 5");
+    }
+    if (copyArray[i] > 5) {
+      console.log(copyArray[i], "è > di 5");
+      sum += copyArray[i];
+    }
+    if (copyArray[i] < 5) {
+      console.log(copyArray[i], "è < di 5");
+    }
+  }
+  return sum;
+};
+
+console.log("la somma dei numeri > di 5 è:", checkArray());
+
+// ESERCIZIO 2
+
+const shoppingCart = [
+  { name: "Penne", id: "00000", price: 2, quantity: 5 },
+
+  { name: "Matite", id: "11111", price: 1, quantity: 7 },
+
+  { name: "Gomme", id: "22222", price: 2, quantity: 3 },
+
+  { name: "Quaderni", id: "33333", price: 5, quantity: 4 },
+];
+
+const shoppingCartTotal = function () {
+  let sum = 0;
+  for (let i = 0; i < shoppingCart.length; i++) {
+    sum += shoppingCart[i].price * shoppingCart[i].quantity;
+  }
+  return sum;
+};
+
+console.log(shoppingCartTotal());
+
+// ESERCIZIO 3
+
+const addToShoppingCart = function (nome, codice, prezzo = 1, nArticoli = 1) {
+  shoppingCart.push({
+    name: nome,
+    id: codice,
+    price: prezzo,
+    quantity: nArticoli,
+  });
+  return console.log("Hai", shoppingCart.length, "articoli nel carrello");
+};
+
+addToShoppingCart("Evidenziatori", "44444", 2.5, 4);
